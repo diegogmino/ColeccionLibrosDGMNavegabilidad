@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../../estilos/registro.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diego.libros.ControladorRegistro">
+   <center>
+      <GridPane maxHeight="350.0" maxWidth="500.0" prefHeight="500.0" prefWidth="825.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="228.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="226.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="226.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets top="-10.0" />
+         </BorderPane.margin>
+         <children>
+            <TextField fx:id="nombre" onKeyTyped="#escribirNombre" promptText="Nombre *">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="apellidos" promptText="Apellidos" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="usuario" layoutX="10.0" layoutY="55.0" onKeyTyped="#escribirUsuario" prefHeight="27.0" prefWidth="220.0" promptText="Usuario *" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <DatePicker fx:id="nacimiento" prefHeight="27.0" prefWidth="159.0" promptText="Fecha de nacimiento" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </DatePicker>
+            <PasswordField fx:id="contrasena" onKeyTyped="#escribirContrasena" promptText="Contraseña *" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" right="20.0" />
+               </GridPane.margin>
+            </PasswordField>
+            <TextField fx:id="mail" onKeyTyped="#escribirMail" promptText="Correo electrónico *" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" right="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnCrearCuenta" alignment="CENTER" mnemonicParsing="false" onAction="#crearCuenta" text="Crear cuenta" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="60.0" top="30.0" />
+               </GridPane.margin>
+            </Button>
+            <PasswordField fx:id="repetirContrasena" layoutX="270.0" layoutY="164.0" onKeyTyped="#escribirRepetirContrasena" promptText="Repetir contraseña *" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="80.0" left="10.0" right="20.0" top="40.0" />
+               </GridPane.margin>
+            </PasswordField>
+            <Button fx:id="btnVolver" alignment="CENTER" layoutX="80.0" layoutY="210.0" mnemonicParsing="false" onAction="#volver" text="Volver" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="30.0" left="80.0" top="-20.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </center>
+   <top>
+      <Label text="Formulario de registro" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Calibri" size="30.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="30.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <bottom>
+      <Label text="Los campos acompañados de (*) son obligatorios" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
+</BorderPane>

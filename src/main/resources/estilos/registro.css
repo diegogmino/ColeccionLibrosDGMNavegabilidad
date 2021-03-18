@@ -1,0 +1,43 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19 feb. 2021, 12:02:07
+    Author     : diego
+*/
+
+BorderPane{
+    -fx-background-color:linear-gradient(#4F493F, #817868);
+}
+
+.label{
+    -fx-text-fill: #FFFFFF;
+}
+
+GridPane{
+    -fx-background-color:#FFA648;
+    -fx-base: #FFA648;
+    -fx-background-radius:10;
+    -fx-accent: #4F493F ;
+    -fx-default-button: #7f878f ;
+    -fx-focus-color: #4F493F;
+    -fx-faint-focus-color: #efefef22;
+}
+
+.button{
+    -fx-font-weight: bold;
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius:22;
+    -fx-font-size:16;
+    -fx-text-fill:#3f474f;
+}
+
+.button:hover{
+    -fx-font-weight: bold;
+    -fx-background-color:#CB9766;
+    -fx-background-radius:22;
+    -fx-font-size:16;
+    -fx-text-fill:#FFFFFF;
+}
