@@ -4,6 +4,9 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" stylesheets="@../../../estilos/grafico.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diego.libros.ControladorGrafico">
    <center>
@@ -13,10 +16,24 @@
          </BorderPane.margin></PieChart>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#volver" text="Volver" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" top="20.0" />
-         </BorderPane.margin>
-      </Button>
+      <GridPane prefHeight="85.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#volver" text="Volver">
+               <GridPane.margin>
+                  <Insets left="405.0" />
+               </GridPane.margin></Button>
+            <Button layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#refrescar" text="Refrescar" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Button>
+         </children>
+      </GridPane>
    </bottom>
 </BorderPane>

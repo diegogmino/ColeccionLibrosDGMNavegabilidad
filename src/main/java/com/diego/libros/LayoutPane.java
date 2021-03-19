@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.Parent;
+import javafx.stage.Stage;
 
 /**
  * 
@@ -22,6 +23,7 @@ import javafx.scene.Parent;
 public class LayoutPane extends BorderPane {
     
     private Map<String, Node> pantallasDeLaAplicacion;
+    private int rango = 0;
     
     public LayoutPane() {
         this.pantallasDeLaAplicacion = new HashMap<>();
@@ -39,10 +41,26 @@ public class LayoutPane extends BorderPane {
     
     public void mostrarComoPantallaActual(String nombreDeLaPantalla) {
         this.setCenter(pantallasDeLaAplicacion.get(nombreDeLaPantalla));
+        
     }
     
-    public void cargarBarraDeMenuEnLaPartePosterior() {
-        this.setTop(pantallasDeLaAplicacion.get("menu"));
+    public void mostrarChart(int rango) {
+        this.rango = rango;
+        this.setCenter(pantallasDeLaAplicacion.get("chart"));
+        
+    }
+    
+    public void mostrarPantallaVolver() {
+        
+        if(rango == 1) {
+            this.setCenter(pantallasDeLaAplicacion.get("libros"));
+        } else {
+            this.setCenter(pantallasDeLaAplicacion.get("librosAdmin"));
+        }
+        
+        
+        
+        
     }
 
 }

@@ -49,8 +49,12 @@ public class ControladorGrafico extends ControladorConNavegabilidad implements I
         
     }
     
+    public void refrescar() {
+        cargarDatosEnElChart();
+    }
+    
     public void volver() {
-        this.layout.mostrarComoPantallaActual("libros");
+        this.layout.mostrarPantallaVolver();
     }
 
 }

@@ -274,7 +274,7 @@ public class ControladorFormularioLibroAdmin extends ControladorConNavegabilidad
       
       public void mostrarGrafico() {
         // Método que devuelve al usuario a la pantalla principal de login
-       this.layout.mostrarComoPantallaActual("chart");
+       this.layout.mostrarChart(2);
       }
    
    public void visualizar() {

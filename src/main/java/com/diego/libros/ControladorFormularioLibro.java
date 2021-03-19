@@ -6,7 +6,17 @@
 package com.diego.libros;
 
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,6 +24,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Stream;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -34,6 +45,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.imageio.ImageIO;
@@ -96,6 +108,58 @@ public class ControladorFormularioLibro extends ControladorConNavegabilidad impl
     LocalDate date = LocalDate.parse("1900-01-01");
     // Variables que se usarán para comprobar si los campos están cubiertos, inicializadas a false
     boolean isbnEs = false, tituloEs = false, autorEs = false, paginasEs = false, sinopsisEs = false, portadaEs = false;
+    
+    public void generarPDF() throws FileNotFoundException, DocumentException {
+        
+        FileChooser fileChooser = new FileChooser();
+        Alert informacion = lanzarPopup("Información", "¿Quiere exportar su colección a un PDF?", 1);
+        Stage stage = (Stage) informacion.getDialogPane().getScene().getWindow();
+        Optional<ButtonType> resultado = informacion.showAndWait();
+         if (resultado.get() == ButtonType.OK) {
+             
+             File selectedFile = fileChooser.showSaveDialog(stage);
+        
+             if(selectedFile != null) {
+                 Document document = new Document();
+                PdfWriter.getInstance(document, new FileOutputStream(selectedFile.getAbsolutePath()+".pdf"));
+        
+                document.open();
+
+                PdfPTable table = new PdfPTable(5);
+                addTableHeader(table);
+                addRows(table);
+
+                document.add(table);
+                document.close();
+             }
+            
+         }
+        
+    }
+    
+    private void addTableHeader(PdfPTable table) {
+    Stream.of("ISBN-13", "Título", "Autor","Páginas","Género").forEach(columnTitle -> {
+        PdfPCell header = new PdfPCell();
+        header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+        header.setBorderWidth(2);
+        header.setPhrase(new Phrase(columnTitle));
+        table.addCell(header);
+    });
+}
+    
+    private void addRows(PdfPTable table) {
+        
+        List<Libro> libros = libroDao.buscarTodos();
+        
+        for(int i = 0; i < libros.size(); i++) {
+            table.addCell(libros.get(i).getIsbn()+"");
+            table.addCell(libros.get(i).getTitulo());
+            table.addCell(libros.get(i).getAutor());
+            table.addCell(libros.get(i).getPaginas()+"");
+            table.addCell(libros.get(i).getGenero());
+        }
+
+}
     
     
    public void guardar(){
@@ -180,7 +244,7 @@ public class ControladorFormularioLibro extends ControladorConNavegabilidad impl
    
    public void mostrarGrafico() {
         // Método que devuelve al usuario a la pantalla principal de login
-       this.layout.mostrarComoPantallaActual("chart");
+       this.layout.mostrarChart(1);
       }
    
    public void visualizar() {

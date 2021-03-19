@@ -240,6 +240,15 @@
                </image>
             </ImageView>
          </graphic>
+      </Button>
+      <Button layoutX="166.0" layoutY="10.0" onAction="#generarPDF">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@../../../img/pdf.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button> 
          
     </ToolBar>
