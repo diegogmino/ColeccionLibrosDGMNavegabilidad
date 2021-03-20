@@ -18,8 +18,8 @@
    <bottom>
       <GridPane prefHeight="85.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="495.0" minWidth="10.0" prefWidth="360.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="693.0" minWidth="10.0" prefWidth="640.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -27,7 +27,7 @@
          <children>
             <Button mnemonicParsing="false" onAction="#volver" text="Volver">
                <GridPane.margin>
-                  <Insets left="405.0" />
+                  <Insets left="250.0" />
                </GridPane.margin></Button>
             <Button layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#refrescar" text="Refrescar" GridPane.columnIndex="1">
                <GridPane.margin>

@@ -20,6 +20,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="431.0" prefWidth="1000.0" spacing="20" stylesheets="@../../../estilos/libros.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.diego.libros.ControladorFormularioLibro">
 
@@ -42,99 +43,94 @@
         <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
         </padding>
-          
-          <Label text="ISBN-13" GridPane.rowIndex="1">
+          <TextField fx:id="isbn" onKeyTyped="#escribirISBN" promptText="ISBN-13" GridPane.rowIndex="1">
             <GridPane.margin>
-               <Insets bottom="10.0" right="10.0" />
-            </GridPane.margin></Label>
-          <TextField fx:id="isbn" onKeyTyped="#escribirISBN" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <Insets bottom="10.0" right="100.0" />
+            </GridPane.margin>
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font></TextField>
+          <TextField fx:id="titulo" onKeyTyped="#escribirTitulo" promptText="Titulo" GridPane.columnIndex="3" GridPane.rowIndex="1">
             <GridPane.margin>
-               <Insets bottom="10.0" />
-            </GridPane.margin></TextField>
-          
-          <Label text="Titulo" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <Insets bottom="10.0" left="10.0" right="30.0" />
+            </GridPane.margin>
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font></TextField>
+          <TextField fx:id="autor" onKeyTyped="#escribirAutor" promptText="Autor" GridPane.rowIndex="3">
             <GridPane.margin>
-               <Insets bottom="10.0" left="10.0" />
-            </GridPane.margin></Label>
-          <TextField fx:id="titulo" onKeyTyped="#escribirTitulo" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <Insets bottom="10.0" right="30.0" />
+            </GridPane.margin>
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font></TextField>
+          <TextField fx:id="paginas" onKeyTyped="#escribirPaginas" promptText="Páginas" GridPane.columnIndex="3" GridPane.rowIndex="3">
             <GridPane.margin>
-               <Insets bottom="10.0" left="10.0" />
-            </GridPane.margin></TextField>
-        
-          <Label text="Autor" GridPane.rowIndex="3">
-            <GridPane.margin>
-               <Insets bottom="10.0" right="10.0" />
-            </GridPane.margin></Label>
-          <TextField fx:id="autor" onKeyTyped="#escribirAutor" GridPane.columnIndex="1" GridPane.rowIndex="3">
-            <GridPane.margin>
-               <Insets bottom="10.0" />
-            </GridPane.margin></TextField>
-          
-          <Label text="Páginas" GridPane.columnIndex="2" GridPane.rowIndex="3">
-            <GridPane.margin>
-               <Insets bottom="10.0" left="10.0" />
-            </GridPane.margin></Label>
-          <TextField fx:id="paginas" onKeyTyped="#escribirPaginas" GridPane.columnIndex="3" GridPane.rowIndex="3">
-            <GridPane.margin>
-               <Insets bottom="10.0" left="10.0" />
-            </GridPane.margin></TextField>
-        
-          <Label text="Sinopsis" GridPane.rowIndex="5">
-            <GridPane.margin>
-               <Insets bottom="10.0" right="10.0" />
-            </GridPane.margin></Label>
-          <TextArea fx:id="sinopsis" onKeyTyped="#escribirSinopsis" prefHeight="130.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <Insets bottom="10.0" left="10.0" right="200.0" />
+            </GridPane.margin>
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font></TextField>
+          <TextArea fx:id="sinopsis" onKeyTyped="#escribirSinopsis" prefHeight="130.0" prefWidth="200.0" promptText="Sinopsis" GridPane.rowIndex="5">
             <GridPane.margin>
                <Insets bottom="10.0" />
-            </GridPane.margin></TextArea>
+            </GridPane.margin>
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font></TextArea>
           
-         <Spinner fx:id="spinner" GridPane.columnIndex="3" GridPane.rowIndex="5">
+         <Spinner fx:id="spinner" prefHeight="25.0" prefWidth="164.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
             <GridPane.margin>
                <Insets bottom="10.0" left="10.0" />
             </GridPane.margin>
          </Spinner>
-         <Label text="Género" GridPane.columnIndex="2" GridPane.rowIndex="5">
-            <GridPane.margin>
-               <Insets bottom="10.0" left="10.0" />
-            </GridPane.margin>
-         </Label>
-         <Label prefHeight="17.0" prefWidth="58.0" text="Portada" GridPane.rowIndex="6">
-            <GridPane.margin>
-               <Insets bottom="10.0" right="10.0" />
-            </GridPane.margin>
-         </Label>
-         <TextField fx:id="portada" onKeyTyped="#escribirPortada" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <TextField fx:id="portada" onKeyTyped="#escribirPortada" promptText="Portada" GridPane.rowIndex="6">
             <GridPane.margin>
                <Insets bottom="10.0" />
             </GridPane.margin>
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
          </TextField>
-         <CheckBox fx:id="leido" mnemonicParsing="false" onMouseClicked="#activarDesactivarFecha" text="Leído" GridPane.columnIndex="2" GridPane.rowIndex="6">
+         <CheckBox fx:id="leido" mnemonicParsing="false" onMouseClicked="#activarDesactivarFecha" text="Leído" GridPane.columnIndex="3" GridPane.rowIndex="6">
             <GridPane.margin>
                <Insets bottom="10.0" left="10.0" />
             </GridPane.margin>
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
          </CheckBox>
          <DatePicker fx:id="fecha" GridPane.columnIndex="3" GridPane.rowIndex="6">
             <GridPane.margin>
-               <Insets bottom="10.0" left="10.0" />
+               <Insets bottom="10.0" left="75.0" />
             </GridPane.margin>
          </DatePicker>
          <Label text="Libros en la colección" GridPane.rowIndex="7">
             <GridPane.margin>
                <Insets bottom="10.0" top="5.0" />
             </GridPane.margin>
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font>
          </Label>
-         <TextField fx:id="totalLibros" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+         <TextField fx:id="totalLibros" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="40.0" GridPane.rowIndex="7">
             <GridPane.margin>
-               <Insets bottom="10.0" top="5.0" />
+               <Insets bottom="10.0" left="125.0" top="5.0" />
             </GridPane.margin>
          </TextField>
-         <Label text="Libros leidos" GridPane.rowIndex="8" />
-         <TextField fx:id="librosLeidos" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+         <Label text="Libros leidos" GridPane.rowIndex="8">
+            <font>
+               <Font name="Calibri" size="14.0" />
+            </font></Label>
+         <TextField fx:id="librosLeidos" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="40.0" GridPane.rowIndex="8">
+            <GridPane.margin>
+               <Insets left="75.0" />
+            </GridPane.margin></TextField>
          <columnConstraints>
-            <ColumnConstraints maxWidth="124.0" minWidth="119.0" prefWidth="124.0" />
-            <ColumnConstraints maxWidth="195.0" minWidth="190.0" prefWidth="190.0" />
-            <ColumnConstraints />
-            <ColumnConstraints />
+            <ColumnConstraints maxWidth="261.0" minWidth="119.0" prefWidth="261.0" />
+            <ColumnConstraints maxWidth="195.0" minWidth="12.0" prefWidth="13.0" />
+            <ColumnConstraints maxWidth="75.0" minWidth="11.0" prefWidth="12.0" />
+            <ColumnConstraints maxWidth="286.0" minWidth="189.0" prefWidth="276.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints />
